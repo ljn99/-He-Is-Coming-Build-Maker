@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.build-area {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.item-slots {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.item-slot {
+    width: 64px;
+    height: 64px;
+    border: 2px solid white;
+}
+
+.weapon-slot {
+    width: 120px;
+    height: 120px;
+    border: 2px solid white;
+}
+
+.build-stats {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.build-stats div {
+    width: 50px;
+    height: 30px;
+    border: 2px solid white;
+}
+
+.item-picker {
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.item-grid {
+    flex-grow: 2.5;
+    background-color: green;
+}
+
+.item-filter {
+    flex-grow: 1.5;
+    background-color: yellow;
+}
