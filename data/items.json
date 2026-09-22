@@ -1,0 +1,23 @@
+[
+    {
+        "id": "redwood_roast",
+        "name": "Redwood Roast",
+        "region": "woodlands",
+        "bundle": "woodlands1",
+        "category": "item",
+        "rarity": "common",
+        "description": null,
+        "image": "Spritesheet_Items_r01c10.png",
+        "setID": null,
+        "tags": ["wood", "food"],
+        "family": "redwood_roast",
+        "tier": "base",
+        "dynamicEffect": false,
+        "stackable": false,
+        "maxStacks": 0,
+        "healthBonus": 5,
+        "attack": 0,
+        "armor": 0,
+        "speed": 0
+    }
+]
