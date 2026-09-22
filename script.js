@@ -1,3 +1,10 @@
+const build = {
+    weapon: null,
+    items: [null, null, null, null]
+};
+
+let selectedIndex = null;
+
 function loadItems(jsonPath, imageFolder) {
     fetch(jsonPath)
         .then(response => response.json())
@@ -22,6 +29,19 @@ function loadItems(jsonPath, imageFolder) {
                 box.addEventListener("mousemove", (event) => {
                     tooltip.style.left = event.pageX + 10 + "px";
                     tooltip.style.top = event.pageY + 10 + "px";
+                })
+
+                box.addEventListener("click", () => {
+                    if (item.category === "weapon") {
+                        build.weapon = item;
+                    } else {
+                        const emptyIndex = build.items.indexOf(null);
+                        if (emptyIndex !== -1) {
+                            build.items[emptyIndex] = item;
+                        }
+                    }
+
+                    renderBuild();
                 })
 
                 const img = document.createElement("img");
@@ -61,5 +81,76 @@ function buildTooltipText(item) {
     return text;
 }
 
+function renderBuild() {
+    const weaponSlot = document.querySelector(".weapon-slot");
+    weaponSlot.innerHTML = "";
+
+    if (build.weapon !== null) {
+        const img = document.createElement("img");
+        img.src = "assets/weapons/" + build.weapon.image;
+        img.alt = build.weapon.name;
+        weaponSlot.appendChild(img);
+    }
+
+    const itemSlotElements = document.querySelectorAll(".item-slot-build");
+
+    build.items.forEach((item, index) => {
+        const slotElement = itemSlotElements[index];
+        slotElement.innerHTML = "";
+
+        if (item !== null) {
+            const img = document.createElement("img");
+            img.src = "assets/items/" + item.image;
+            img.alt = item.name;
+            slotElement.appendChild(img);
+        }
+
+        if (index === selectedIndex) {
+            slotElement.classList.add("selected");
+        } else {
+            slotElement.classList.remove("selected");
+        }
+    });
+}
+
+function handleSlotClick(index) {
+    if (build.items[index] === null) {
+        return;
+    }
+
+    if (selectedIndex === null) {
+        selectedIndex = index;
+    } else if (selectedIndex === index) {
+        build.items[index] = null;
+        selectedIndex = null;
+    } else {
+        const temp = build.items[selectedIndex];
+        build.items[selectedIndex] = build.items[index];
+        build.items[index] = temp;
+        selectedIndex = null;
+    }
+
+    renderBuild();
+}
+
+function handleWeaponClick() {
+    if (build.weapon === null) {
+        return;
+    }
+    
+    build.weapon = null;
+    renderBuild();
+    
+}
+
+const itemSlotElements = document.querySelectorAll(".item-slot-build");
+itemSlotElements.forEach((slotElement, index) => {
+    slotElement.addEventListener("click", () => handleSlotClick(index));
+});
+
+const weaponSlotElement = document.querySelector(".weapon-slot");
+weaponSlotElement.addEventListener("click", () => handleWeaponClick());
+
 loadItems("data/weapons.json", "assets/weapons/");
 loadItems("data/items.json", "assets/items/");
+renderBuild();

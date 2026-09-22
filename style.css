@@ -38,10 +38,20 @@ body {
     image-rendering: pixelated;
 }
 
+.item-slot-build.selected {
+    border-color: yellow;
+}
+
 .weapon-slot {
     width: 120px;
     height: 120px;
     border: 2px solid white;
+}
+
+.weapon-slot img {
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
 }
 
 .build-stats {
