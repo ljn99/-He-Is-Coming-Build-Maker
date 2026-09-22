@@ -111,6 +111,12 @@ function renderBuild() {
             slotElement.classList.remove("selected");
         }
     });
+
+    const stats = calculateStats();
+    document.querySelector(".health").textContent = stats.health;
+    document.querySelector(".attack").textContent = stats.attack;
+    document.querySelector(".armor").textContent = stats.armor;
+    document.querySelector(".speed").textContent = stats.speed;
 }
 
 function handleSlotClick(index) {
@@ -141,6 +147,28 @@ function handleWeaponClick() {
     build.weapon = null;
     renderBuild();
     
+}
+
+function calculateStats() {
+    const totals = { health: 10, attack: 0, armor: 0, speed: 0 };
+
+    if (build.weapon !== null) {
+        totals.health += build.weapon.healthBonus;
+        totals.attack += build.weapon.attack;
+        totals.armor += build.weapon.armor;
+        totals.speed += build.weapon.speed;
+    };
+
+    build.items.forEach(item => {
+        if (item !== null) {
+            totals.health += item.healthBonus;
+            totals.attack += item.attack;
+            totals.armor += item.armor;
+            totals.speed += item.speed;
+        }
+    });
+
+    return totals;
 }
 
 const itemSlotElements = document.querySelectorAll(".item-slot-build");
