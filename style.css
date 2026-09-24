@@ -1,3 +1,15 @@
+@font-face {
+    font-family: "Alkhemikal";
+    src: url("assets/fonts/Alkhemikal.ttf");
+}
+
+:root {
+    --border-basic: url("assets/misc/box_basic.png");
+    --border-weapon: url("assets/misc/box_red_border.png");
+    --background-color: #25131a;
+    --icon-weapon-corner: url("assets/icons/small_sword_corner.png");
+}
+
 * {
     box-sizing: border-box;
 }
@@ -10,10 +22,12 @@ body {
     display: flex;
     flex-direction: row;
     height: 100vh;
+    font-family: "Alkhemikal", sans-serif;
+    color: #e6deca;
+    background-color: var(--background-color);
 }
 
 .build-area {
-    background-color: red;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,7 +43,12 @@ body {
 .item-slot {
     width: 64px;
     height: 64px;
-    border: 2px solid white;
+    border: 9px solid transparent;
+    border-image-source: var(--border-basic);
+    border-image-slice: 3;
+    border-image-width: 9px;
+    border-image-repeat: stretch;
+    image-rendering: pixelated;
 }
 
 .item-slot img {
@@ -42,16 +61,68 @@ body {
     border-color: yellow;
 }
 
+.item-slot, .item-visual {
+    position: relative;
+}
+
+.item-slot.weapon-item-slot {
+    border-image-source: var(--border-weapon);
+}
+
 .weapon-slot {
     width: 120px;
     height: 120px;
-    border: 2px solid white;
+    border: 9px solid transparent;
+    position: relative;
+    border-image-source: var(--border-weapon);
+    border-image-slice: 3;
+    border-image-width: 9px;
+    border-image-repeat: stretch;
+    image-rendering: pixelated;
 }
 
-.weapon-slot img {
+.weapon-corner-icon, .rarity-icon {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    background-size: contain;
+    image-rendering: pixelated;
+}
+
+.weapon-corner-icon {
+    top: -10px;
+    left: -10px;
+    background-image: var(--icon-weapon-corner);
+}
+
+.rarity-icon {
+    top: -10px;
+    right: -10px;
+}
+
+.item-visual {
+    position: relative;
     width: 100%;
     height: 100%;
+}
+
+.item-visual img {
+    width: 75%;
+    height: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     image-rendering: pixelated;
+}
+
+.stack-count {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    color: white;
+    background-color: black;
+    padding: 2px 4px;
 }
 
 .weapon-oils {
@@ -61,14 +132,16 @@ body {
 }
 
 .oil-toggle {
-    border: 2px solid white;
+    width: 48px;
+    height: 48px;
     padding: 4px;
     cursor: pointer;
+    image-rendering: pixelated;
+    opacity: 0.4;
 }
 
 .oil-toggle.active {
-    background-color: yellow;
-    color: black;
+    opacity: 1;
 }
 
 .build-stats {
@@ -77,14 +150,33 @@ body {
     gap: 8px;
 }
 
-.build-stats div {
-    width: 50px;
-    height: 30px;
-    border: 2px solid white;
+.stat-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  border: 9px solid transparent;
+  border-image-source: var(--border-basic);
+  border-image-slice: 3;
+  border-image-width: 9px;
+  border-image-repeat: stretch;
+  image-rendering: pixelated;
+  padding: 4px 8px;
+}
+
+.stat-icon {
+  width: 20px;
+  height: 20px;
+  image-rendering: pixelated;
+}
+
+.stat-value {
+    display: inline-block;
+    min-width: 24px;
+    text-align: right;
 }
 
 .item-picker {
-    background-color: blue;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
@@ -92,7 +184,6 @@ body {
 
 .item-grid {
     flex-grow: 2.5;
-    background-color: green;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -102,15 +193,19 @@ body {
 
 .item-filter {
     flex-grow: 1.5;
-    background-color: yellow;
 }
 
 .tooltip {
     position: absolute;
     display: none;
-    background-color: black;
-    color: white;
+    background-color: #25131a;
+    color: #e6deca;
     border: 2px solid white;
     padding: 8px;
     pointer-events: none;
+    border-image-source: var(--border-basic);
+    border-image-slice: 3;
+    border-image-width: 9px;
+    border-image-repeat: stretch;
+    image-rendering: pixelated;
 }
