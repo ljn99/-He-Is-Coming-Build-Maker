@@ -1,5 +1,6 @@
 const build = {
     weapon: null,
+    oils: {attack: true, armor: true, speed: true},
     items: [null, null, null, null]
 };
 
@@ -117,6 +118,14 @@ function renderBuild() {
     document.querySelector(".attack").textContent = stats.attack;
     document.querySelector(".armor").textContent = stats.armor;
     document.querySelector(".speed").textContent = stats.speed;
+
+    document.querySelectorAll(".oil-toggle").forEach(el => {
+        if (build.oils[el.dataset.stat]) {
+            el.classList.add("active");
+        } else {
+            el.classList.remove("active");
+        }
+    })
 }
 
 function handleSlotClick(index) {
@@ -168,7 +177,22 @@ function calculateStats() {
         }
     });
 
+    if (build.oils.attack) {
+        totals.attack += 1;
+    }
+    if (build.oils.armor) {
+        totals.armor += 1;
+    }
+    if (build.oils.speed) {
+        totals.speed += 1;
+    }
+
     return totals;
+}
+
+function handleOilClick(statName) {
+    build.oils[statName] = !build.oils[statName];
+    renderBuild()
 }
 
 const itemSlotElements = document.querySelectorAll(".item-slot-build");
@@ -178,6 +202,10 @@ itemSlotElements.forEach((slotElement, index) => {
 
 const weaponSlotElement = document.querySelector(".weapon-slot");
 weaponSlotElement.addEventListener("click", () => handleWeaponClick());
+
+document.querySelectorAll(".oil-toggle").forEach(el => {
+    el.addEventListener("click", () => handleOilClick(el.dataset.stat));
+});
 
 loadItems("data/weapons.json", "assets/weapons/");
 loadItems("data/items.json", "assets/items/");

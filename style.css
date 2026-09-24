@@ -54,6 +54,23 @@ body {
     image-rendering: pixelated;
 }
 
+.weapon-oils {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.oil-toggle {
+    border: 2px solid white;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.oil-toggle.active {
+    background-color: yellow;
+    color: black;
+}
+
 .build-stats {
     display: flex;
     flex-direction: row;
