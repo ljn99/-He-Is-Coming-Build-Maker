@@ -155,8 +155,8 @@ function renderBuild() {
         } else {
             el.classList.remove("active");
         }
-    })
-}
+    });
+};
 
 function handleSlotClick(index) {
     if (build.items[index] === null) {
@@ -176,7 +176,7 @@ function handleSlotClick(index) {
     }
 
     renderBuild();
-}
+};
 
 function handleWeaponClick() {
     if (build.weapon === null) {
@@ -187,7 +187,7 @@ function handleWeaponClick() {
     build.weaponStacks = 1;
     renderBuild();
     
-}
+};
 
 function calculateStats() {
     const totals = { health: 10, attack: 0, armor: 0, speed: 0 };
@@ -219,12 +219,12 @@ function calculateStats() {
     }
 
     return totals;
-}
+};
 
 function handleOilClick(statName) {
     build.oils[statName] = !build.oils[statName];
     renderBuild()
-}
+};
 
 function createItemVisual(item, imageFolder) {
     const wrapper = document.createElement("div");
@@ -247,7 +247,31 @@ function createItemVisual(item, imageFolder) {
     wrapper.appendChild(rarityBadge);
 
     return wrapper;
-}
+};
+
+function getRarityFiters() {
+    const rarityFilters = [];
+
+    document.querySelectorAll(".rarity-filter").forEach(el => {
+        if (el.checked) {
+            rarityFilters.push(el.value)
+        };
+    });
+
+    return rarityFilters;
+};
+
+function getTagFiters() {
+    const tagFilters = [];
+
+    document.querySelectorAll(".tag-filter").forEach(el => {
+        if (el.checked) {
+            tagFilters.push(el.value)
+        };
+    });
+
+    return tagFilters;
+};
 
 const itemSlotElements = document.querySelectorAll(".item-slot-build");
 itemSlotElements.forEach((slotElement, index) => {
