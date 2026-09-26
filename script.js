@@ -13,68 +13,22 @@ const rarityIcons = {
   cursed: "assets/icons/rarity_cursed.png"
 };
 
+const weaponData = "data/weapons.json";
+const weaponImgPath = "assets/weapons/";
+const itemData = "data/items.json";
+const itemImgPath = "assets/items/";
+
+let allWeapons = [];
+let allItems = [];
+
 let selectedIndex = null;
 
-function loadItems(jsonPath, imageFolder) {
+function loadItems(jsonPath, callback) {
     fetch(jsonPath)
         .then(response => response.json())
         .then(data => {
-            const grid = document.querySelector(".item-grid");
-
-            data.forEach(item => {
-                const box = document.createElement("div");
-                box.classList.add("item-slot");
-                if (item.category === "weapon") {
-                    box.classList.add("weapon-item-slot");
-                };
-
-                const tooltip = document.getElementById("tooltip");
-
-                box.addEventListener("mouseenter", () => {
-                    tooltip.style.display = "block";
-                    tooltip.innerHTML = buildTooltipText(item).replaceAll("\n", "<br>");
-                });
-
-                box.addEventListener("mouseleave", () => {
-                    tooltip.style.display = "none";
-                });
-
-                box.addEventListener("mousemove", (event) => {
-                    tooltip.style.left = event.pageX + 10 + "px";
-                    tooltip.style.top = event.pageY + 10 + "px";
-                });
-
-                box.addEventListener("click", () => {
-                    if (item.category === "weapon") {
-                        const isSameStackableWeapon = 
-                            build.weapon !== null &&
-                            build.weapon.id === item.id &&
-                            item.stackable &&
-                            build.weaponStacks < item.maxStacks;
-
-                            if (isSameStackableWeapon) {
-                                build.weaponStacks += 1;
-                            } else {
-                                build.weapon = item;
-                                build.weaponStacks = 1;
-                            };
-                    } else {
-                        const emptyIndex = build.items.indexOf(null);
-                        if (emptyIndex !== -1) {
-                            build.items[emptyIndex] = item;
-                        }
-                    };
-
-                    renderBuild();
-                });
-
-                const img = document.createElement("img");
-                img.src = imageFolder + item.image;
-                img.alt = item.name;
-
-                box.appendChild(createItemVisual(item, imageFolder));
-                grid.appendChild(box);
-            });
+            callback(data);
+            renderItemGrid();
         });
 };
 
@@ -119,7 +73,7 @@ function renderBuild() {
             const stackLabel = document.createElement("div");
             stackLabel.textContent = "x" + build.weaponStacks;
             stackLabel.classList.add("stack-count");
-            weaponSlot.appendChild(stackLabel);
+            weaponSlot.appendChild(createItemVisual(build.weapon, "assets/weapons/", "weapon"));
         }
     }
 
@@ -226,7 +180,7 @@ function handleOilClick(statName) {
     renderBuild()
 };
 
-function createItemVisual(item, imageFolder) {
+function createItemVisual(item, imageFolder, category) {
     const wrapper = document.createElement("div");
     wrapper.classList.add("item-visual");
 
@@ -235,7 +189,7 @@ function createItemVisual(item, imageFolder) {
     img.alt = item.name;
     wrapper.appendChild(img);
 
-    if (item.category === "weapon") {
+    if (category === "weapon") {
         const corner = document.createElement("div");
         corner.classList.add("weapon-corner-icon");
         wrapper.appendChild(corner);
@@ -247,7 +201,7 @@ function createItemVisual(item, imageFolder) {
     wrapper.appendChild(rarityBadge);
 
     return wrapper;
-};
+}
 
 function getRarityFiters() {
     const rarityFilters = [];
@@ -273,6 +227,82 @@ function getTagFiters() {
     return tagFilters;
 };
 
+function renderItemGrid() {
+    const grid = document.querySelector(".item-grid");
+    grid.innerHTML = "";
+
+    const rarityFilters = getRarityFiters();
+    const tagFilters = getTagFiters();
+
+    const groups = [
+        { list: allWeapons, imageFolder: weaponImgPath, category: "weapon" },
+        { list: allItems, imageFolder: itemImgPath, category: "item" }
+    ];
+
+    groups.forEach(group => {
+        group.list.forEach(item => {
+            if (!passesFilters(item, rarityFilters, tagFilters)) {
+                return;
+            }
+
+            const box = document.createElement("div");
+            box.classList.add("item-slot");
+            if (group.category === "weapon") {
+                box.classList.add("weapon-item-slot");
+            }
+
+            const tooltip = document.getElementById("tooltip");
+
+            box.addEventListener("mouseenter", () => {
+                tooltip.style.display = "block";
+                tooltip.innerHTML = buildTooltipText(item).replaceAll("\n", "<br>");
+            });
+
+            box.addEventListener("mouseleave", () => {
+                tooltip.style.display = "none";
+            });
+
+            box.addEventListener("mousemove", (event) => {
+                tooltip.style.left = event.pageX + 10 + "px";
+                tooltip.style.top = event.pageY + 10 + "px";
+            });
+
+            box.addEventListener("click", () => {
+                if (group.category === "weapon") {
+                    const isSameStackableWeapon =
+                        build.weapon !== null &&
+                        build.weapon.id === item.id &&
+                        item.stackable &&
+                        build.weaponStacks < item.maxStacks;
+
+                    if (isSameStackableWeapon) {
+                        build.weaponStacks += 1;
+                    } else {
+                        build.weapon = item;
+                        build.weaponStacks = 1;
+                    }
+                } else {
+                    const emptyIndex = build.items.indexOf(null);
+                    if (emptyIndex !== -1) {
+                        build.items[emptyIndex] = item;
+                    }
+                }
+
+                renderBuild();
+            });
+
+            box.appendChild(createItemVisual(item, group.imageFolder, group.category));
+            grid.appendChild(box);
+        });
+    });
+}
+
+function passesFilters(item, rarityFilters, tagFilters) {
+    const rarityOk = rarityFilters.length === 0 || rarityFilters.includes(item.rarity);
+    const tagOk = tagFilters.length === 0 || item.tags.some(tag => tagFilters.includes(tag));
+    return rarityOk && tagOk;
+}
+
 const itemSlotElements = document.querySelectorAll(".item-slot-build");
 itemSlotElements.forEach((slotElement, index) => {
     slotElement.addEventListener("click", () => handleSlotClick(index));
@@ -285,6 +315,15 @@ document.querySelectorAll(".oil-toggle").forEach(el => {
     el.addEventListener("click", () => handleOilClick(el.dataset.stat));
 });
 
-loadItems("data/weapons.json", "assets/weapons/");
-loadItems("data/items.json", "assets/items/");
+document.querySelectorAll(".rarity-filter").forEach(el => {
+    el.addEventListener("change", () => renderItemGrid());
+});
+
+document.querySelectorAll(".tag-filter").forEach(el => {
+    el.addEventListener("change", () => renderItemGrid());
+});
+
+loadItems(weaponData, data => { allWeapons = data; });
+loadItems(itemData, data => { allItems = data; });
+
 renderBuild();
