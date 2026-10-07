@@ -1,0 +1,525 @@
+[
+  {
+    "id": "agile_edge",
+    "name": "Agile Edge",
+    "rarity": "edge",
+    "description": "Battle Start: Gain 1 additional strike",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 3,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "bleeding_edge",
+    "name": "Bleeding Edge",
+    "rarity": "edge",
+    "description": "On Hit: Restore 1 health",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 2,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "blunt_edge",
+    "name": "Blunt Edge",
+    "rarity": "edge",
+    "description": "On Hit: Gain 1 armor",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 1,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "cleansing_edge",
+    "name": "Cleansing Edge",
+    "rarity": "edge",
+    "description": "Ignore the first status effect you're afflicted with",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 5,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "corroded_edge",
+    "name": "Corroded Edge",
+    "rarity": "edge",
+    "description": "On Hit: Give 1 acid",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 0,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null,
+    "rawTags": [
+      28
+    ]
+  },
+  {
+    "id": "cursed_edge",
+    "name": "Cursed Edge",
+    "rarity": "edge",
+    "description": "On Hit: If the enemy doesn't have curse, give the enemy 1 curse",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 7,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "cutting_edge",
+    "name": "Cutting Edge",
+    "rarity": "edge",
+    "description": "On Hit: Deal 1 damage",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 1,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "defensive_edge",
+    "name": "Defensive Edge",
+    "rarity": "edge",
+    "description": "First turn: Gain 3 armor on hit",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 0,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "featherweight_edge",
+    "name": "Featherweight Edge",
+    "rarity": "edge",
+    "description": "On Hit: Convert 2 speed to 1 attack",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 3,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "femur_edge",
+    "name": "Bone Edge",
+    "rarity": "edge",
+    "description": "Battle Start: Gain 1 bone",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 7,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "freezing_edge",
+    "name": "Freezing Edge",
+    "rarity": "edge",
+    "description": "Battle Start: Give the enemy 3 freeze",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 3,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "frightening_edge",
+    "name": "Terrorsteel Edge",
+    "rarity": "edge",
+    "description": "Battle start: The enemy loses 1 attack",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 7,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "furious_edge",
+    "name": "Sharpened Edge",
+    "rarity": "edge",
+    "description": "Your first strike deal double damage",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 7,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "gilded_edge",
+    "name": "Gilded Edge",
+    "rarity": "edge",
+    "description": "On Hit: If you have less than 15 gold, gain 1 gold",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 1,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "jagged_edge",
+    "name": "Jagged Edge",
+    "rarity": "edge",
+    "description": "On Hit: Gain 2 thorns and take 1 damage",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 2,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "lightning_edge",
+    "name": "Stormcloud Edge",
+    "rarity": "edge",
+    "description": "Battle Start: Stun the enemy for 1 turn",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 6,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "oaken_edge",
+    "name": "Oaken Edge",
+    "rarity": "edge",
+    "description": "Battle Start: Gain 3 regeneration",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 4,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "oozing_edge",
+    "name": "Oozing Edge",
+    "rarity": "edge",
+    "description": "On Hit: If the enemy doesn't have any poison, give them 2 poison",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 4,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "petrified_edge",
+    "name": "Petrified Edge",
+    "rarity": "edge",
+    "description": "Double your attack. On Hit: Gain 1 stun",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 5,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "phoenix_edge",
+    "name": "Phoenix Edge",
+    "rarity": "edge",
+    "description": "Resilience",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 7,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "plated_edge",
+    "name": "Plated Edge",
+    "rarity": "edge",
+    "description": "On Hit: Convert 1 speed to 3 armor",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 6,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "razor_edge",
+    "name": "Razor Edge",
+    "rarity": "edge",
+    "description": "Battle Start: Gain 1 attack",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 5,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "shining_edge",
+    "name": "Midas Edge",
+    "rarity": "edge",
+    "description": "Battle Start: Gain 1 gold",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 7,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "whirlpool_edge",
+    "name": "Whirlpool Edge",
+    "rarity": "edge",
+    "description": "Every 3 strikes, give the enemy 1 riptide",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 4,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "withering_edge",
+    "name": "Gravebloom Edge",
+    "rarity": "edge",
+    "description": "On Hit: Give the enemy 2 wither",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 7,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  },
+  {
+    "id": "wounded_edge",
+    "name": "Needle Edge",
+    "rarity": "edge",
+    "description": "On Hit: Take 1 damage and restore 2 health",
+    "healthBonus": 0,
+    "attack": 0,
+    "armor": 0,
+    "speed": 0,
+    "tags": [
+      "edge"
+    ],
+    "hasGolden": false,
+    "hasDiamond": false,
+    "kingmakerBundle": 7,
+    "image": null,
+    "stackable": false,
+    "maxStacks": 1,
+    "dynamicEffect": null
+  }
+]
